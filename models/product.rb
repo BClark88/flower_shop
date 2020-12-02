@@ -1,5 +1,4 @@
 class Product
-
   attr_reader :name, :code, :bundles
 
   def initialize(name, code, bundles)
@@ -7,5 +6,4 @@ class Product
     @code = code
     @bundles = bundles
   end
-
 end
