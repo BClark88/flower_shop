@@ -1,4 +1,4 @@
-require_relative '../models/bundle.rb'
+require_relative '../models/bundle'
 RSpec.describe Bundle do
 
   subject { described_class.new(5, 599) }
