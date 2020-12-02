@@ -23,7 +23,7 @@ RSpec.describe CalculatorService do
 
   context 'zero quantity' do
     it 'returns zero' do
-      expect(subject.calculate(-1, bundles)).to eq 0
+      expect(subject.calculate(0, bundles)).to eq 0
     end
   end
   context 'negative number' do
