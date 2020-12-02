@@ -21,6 +21,12 @@ RSpec.describe CalculatorService do
     end
   end
 
+  context 'can calculate, one pack only' do
+    it 'returns the expected output' do
+      expect(subject.calculate(3, bundles)).to eq 595
+    end
+  end
+
   context 'zero quantity' do
     it 'returns zero' do
       expect(subject.calculate(0, bundles)).to eq 0
