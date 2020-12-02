@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+group :development, :test do
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rspec'
+end
