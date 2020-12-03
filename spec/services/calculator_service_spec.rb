@@ -10,37 +10,40 @@ RSpec.describe CalculatorService do
   subject { described_class.new }
 
   context 'can calculate, quantity bigger than largest bundle' do
+    let(:expected_combination) { [bundle1, bundle2, bundle2] }
     it 'returns the expected output' do
-      expect(subject.calculate(13, bundles)).to eq 2585
+      expect(subject.calculate(13, bundles)).to eq expected_combination
     end
   end
 
   context 'can calculate, quantity smaller than largest bundle' do
+    let(:expected_combination) { [bundle1, bundle1] }
     it 'returns the expected output' do
-      expect(subject.calculate(10, bundles)).to eq 1990
+      expect(subject.calculate(6, bundles)).to eq expected_combination
     end
   end
 
   context 'can calculate, one pack only' do
+    let(:expected_combination) { [bundle1] }
     it 'returns the expected output' do
-      expect(subject.calculate(3, bundles)).to eq 595
+      expect(subject.calculate(3, bundles)).to eq expected_combination
     end
   end
 
   context 'zero quantity' do
-    it 'returns zero' do
-      expect(subject.calculate(0, bundles)).to eq 0
+    it 'returns an empty array' do
+      expect(subject.calculate(0, bundles)).to eq []
     end
   end
   context 'negative number' do
-    it 'returns nil' do
-      expect(subject.calculate(-1, bundles)).to eq nil
+    it 'returns an empty array' do
+      expect(subject.calculate(-1, bundles)).to eq []
     end
   end
 
   context 'cannot calculate' do
-    it 'returns nil' do
-      expect(subject.calculate(7, bundles)).to eq nil
+    it 'returns an empty array' do
+      expect(subject.calculate(7, bundles)).to eq []
     end
   end
 end

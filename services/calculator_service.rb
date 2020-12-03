@@ -1,11 +1,7 @@
 require 'byebug'
 class CalculatorService
   def calculate(quantity, bundles)
-    return if quantity.negative?
-    return 0 if quantity.zero?
-
-    optimal_combination = find_optimal_combination(quantity, bundles)
-    optimal_combination.empty? ? nil : optimal_combination.sum(&:price)
+    find_optimal_combination(quantity, bundles)
   end
 
   private
