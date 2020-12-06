@@ -1,8 +1,8 @@
-require_relative './models/shop'
+require_relative './services/shop_service'
 
 class Application
   def initialize(products)
-    @shop = Shop.new(products)
+    @shop = ShopService.new(products)
     @valid_codes = products.map(&:code)
   end
 

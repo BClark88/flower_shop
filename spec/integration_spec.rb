@@ -1,5 +1,5 @@
-require_relative '../models/shop'
-RSpec.describe Shop do
+require_relative '../services/shop_service'
+RSpec.describe ShopService do
   let(:r_12_bundles) { [Bundle.new(10, 1299), Bundle.new(5, 699)] }
   let(:l_09_bundles) { [Bundle.new(9, 2495), Bundle.new(6, 1695), Bundle.new(3, 995)] }
   let(:t_58_bundles) { [Bundle.new(9, 1699), Bundle.new(5, 995), Bundle.new(3, 595)] }

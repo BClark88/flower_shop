@@ -1,10 +1,10 @@
 require 'stringio'
 require_relative '../factories/receipt_factory'
-require_relative '../services/calculator_service'
-require_relative './bundle'
-require_relative './product'
+require_relative '../models/product'
+require_relative '../models/bundle'
+require_relative './calculator_service'
 
-class Shop
+class ShopService
   def initialize(products)
     @products = products
   end
