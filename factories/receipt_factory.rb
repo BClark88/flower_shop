@@ -9,12 +9,13 @@ class ReceiptFactory
     total_items = @packaged_bundles.sum(&:quantity)
     total = calculate_total
     packs_and_amounts = calculate_package_amounts
-    receipt = "#{total_items} #{@product.code} $#{total}\n"
+    receipt = StringIO.new
+    receipt.puts "#{total_items} #{@product.code} $#{total}\n"
     packs_and_amounts.each do |pack|
       price = format('%.2f', pack[:price].fdiv(100))
-      receipt += " #{pack[:bundle_size]} x #{pack[:quantity]} $#{price}\n"
+      receipt.puts " #{pack[:bundle_size]} x #{pack[:quantity]} $#{price}"
     end
-    receipt.strip
+    receipt
   end
 
   private
