@@ -1,4 +1,4 @@
-require 'byebug'
+require 'stringio'
 class ReceiptFactory
   def initialize(product, packaged_bundles)
     @product = product

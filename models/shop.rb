@@ -1,3 +1,4 @@
+require 'stringio'
 require_relative '../factories/receipt_factory'
 require_relative '../services/calculator_service'
 require_relative './bundle'
@@ -12,16 +13,16 @@ class Shop
     codes = input.map { |index| index[:code] }
     return 'Product code does not exist' unless codes.all? { |code| product_exists?(code) }
 
-    receipt = ''
+    receipt = StringIO.new
     input.each do |item|
       return 'We cannot process an order that large' if item[:quantity] >= 10_000
 
       result = order(item[:code], item[:quantity])
       return 'Cannot process all items' if result.nil?
 
-      receipt += result.string
+      receipt.puts result.string
     end
-    receipt.strip
+    receipt.string.strip
   end
 
   private

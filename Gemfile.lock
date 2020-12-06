@@ -8,6 +8,7 @@ GEM
     parser (2.7.2.0)
       ast (~> 2.4.1)
     rainbow (3.0.0)
+    rake (13.0.1)
     regexp_parser (2.0.0)
     rexml (3.2.4)
     rspec (3.10.0)
@@ -37,6 +38,8 @@ GEM
     rubocop-performance (1.9.1)
       rubocop (>= 0.90.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rake (0.5.1)
+      rubocop
     rubocop-rspec (2.0.1)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
@@ -48,9 +51,11 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  rake
   rspec
   rubocop
   rubocop-performance
+  rubocop-rake
   rubocop-rspec
 
 BUNDLED WITH
