@@ -13,6 +13,8 @@ If you use `Rbenv` to manage your ruby installations, you can change the version
 ## Testing
 `bundle exec rake`
 
+## How to run
+`ruby app.rb` will load a basic CLI that you can use to play around with my solution
 Running this task will check for rubocop linter errors, as well as run all tests
 
 ## Other deficiencies
