@@ -1,13 +1,11 @@
-require_relative '../../factories/receipt_factory'
-
-RSpec.describe ReceiptFactory do
+RSpec.describe FlowerShop::ReceiptFactory do
   describe '#print_receipt' do
     subject { described_class.new(product, packaged_bundles).print_receipt }
 
     describe 'print_receipt' do
-      let(:product) { Product.new('my_product', 'mp', []) }
-      let(:bundle1) { Bundle.new(3, 595) }
-      let(:bundle2) { Bundle.new(5, 995) }
+      let(:product) { FlowerShop::Product.new('my_product', 'mp', []) }
+      let(:bundle1) { FlowerShop::Bundle.new(3, 595) }
+      let(:bundle2) { FlowerShop::Bundle.new(5, 995) }
       let(:packaged_bundles) { [bundle1, bundle2, bundle1] }
       let(:expected_output) do
         <<~STRING

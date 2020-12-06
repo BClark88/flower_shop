@@ -1,5 +1,4 @@
-require_relative '../../models/bundle'
-RSpec.describe Bundle do
+RSpec.describe FlowerShop::Bundle do
 
   subject { described_class.new(5, 599) }
 

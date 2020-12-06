@@ -1,15 +1,13 @@
-require_relative '../../services/shop'
-RSpec.describe ShopService do
-
-  let(:receipt_factory) { instance_double(ReceiptFactory) }
-  let(:calculator_service) { instance_double(CalculatorService) }
-  let(:bundle) { Bundle.new(1, 100) }
+RSpec.describe FlowerShop::ShopService do
+  let(:receipt_factory) { instance_double(FlowerShop::ReceiptFactory) }
+  let(:calculator_service) { instance_double(FlowerShop::CalculatorService) }
+  let(:bundle) { FlowerShop::Bundle.new(1, 100) }
   let(:expected_output) { 'My receipt' }
   let(:combination) { double }
   let(:code) { 'mp' }
   let(:quantity) { 1 }
   let(:input) { [{ code: code, quantity: quantity }] }
-  let(:products) { [Product.new('My Product', code, [bundle])] }
+  let(:products) { [FlowerShop::Product.new('My Product', code, [bundle])] }
   let(:receipt) { StringIO.new }
 
   before do

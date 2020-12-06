@@ -1,10 +1,8 @@
-require_relative '../../services/calculator_service'
+RSpec.describe FlowerShop::CalculatorService do
 
-RSpec.describe CalculatorService do
-
-  let(:bundle1) { Bundle.new(3, 595) }
-  let(:bundle2) { Bundle.new(5, 995) }
-  let(:bundle3) { Bundle.new(9, 1699) }
+  let(:bundle1) { FlowerShop::Bundle.new(3, 595) }
+  let(:bundle2) { FlowerShop::Bundle.new(5, 995) }
+  let(:bundle3) { FlowerShop::Bundle.new(9, 1699) }
   let(:bundles) { [bundle1, bundle2, bundle3] }
 
   subject { described_class.new }
