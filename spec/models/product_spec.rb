@@ -1,4 +1,4 @@
-require_relative('../models/product')
+require_relative '../../models/product'
 
 RSpec.describe Product do
 

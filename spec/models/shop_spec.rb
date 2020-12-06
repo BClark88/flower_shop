@@ -1,4 +1,4 @@
-require_relative '../models/shop'
+require_relative '../../models/shop'
 RSpec.describe Shop do
 
   let(:receipt_factory) { instance_double(ReceiptFactory) }

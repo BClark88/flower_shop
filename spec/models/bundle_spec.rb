@@ -1,4 +1,4 @@
-require_relative '../models/bundle'
+require_relative '../../models/bundle'
 RSpec.describe Bundle do
 
   subject { described_class.new(5, 599) }
@@ -10,5 +10,4 @@ RSpec.describe Bundle do
   it 'has a price' do
     expect(subject.price).to eq 599
   end
-
 end

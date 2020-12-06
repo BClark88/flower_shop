@@ -3,6 +3,7 @@ require_relative './models/shop'
 class Application
   def initialize(products)
     @shop = Shop.new(products)
+    @valid_codes = products.map(&:code)
   end
 
   def run
@@ -12,8 +13,8 @@ class Application
       receive_orders
 
       puts 'Do you want to process another order? Y/N'
-      answer = gets.chomp
-      until VALID_ANSWERS.include? answer.upcase
+      answer = gets.chomp.upcase
+      until VALID_ANSWERS.include? answer
         puts 'Please enter either Y or N'
         puts 'Do you want to order again? Y/N'
         answer = gets.chomp
@@ -30,18 +31,6 @@ class Application
 
   VALID_ANSWERS = %w[Y N].freeze
 
-  def add_to_order
-    puts 'Please enter an amount and product code separated by a space e.g. 10 R12. Max order size is 9,999'
-    input = gets.chomp
-    quantity, product_code = input.scan(/\w+/)
-    until product_code.instance_of?(String) && quantity.match?(/\A\d+\z/)
-      puts 'Please enter a valid quantity and code'
-      input = gets.chomp
-      quantity, product_code = input.scan(/\w+/)
-    end
-    { code: product_code, quantity: quantity.to_i }
-  end
-
   def process_order(order_list)
     @shop.process_order(order_list)
   end
@@ -52,11 +41,11 @@ class Application
     order_list.push(order_item)
     loop do
       puts 'Order added. Do you want to order something else? Y/N'
-      answer = gets.chomp
-      until VALID_ANSWERS.include? answer.upcase
+      answer = gets.chomp.upcase
+      until VALID_ANSWERS.include? answer
         puts 'Please enter either Y or N'
         puts 'Do you want to order again? Y/N'
-        answer = gets.chomp
+        answer = gets.chomp.upcase
       end
       if answer == 'N'
         puts process_order(order_list)
@@ -66,6 +55,18 @@ class Application
         order_list.push(order_item)
       end
     end
+  end
+
+  def add_to_order
+    puts 'Please enter an amount and product code separated by a space e.g. 10 R12. Max order size is 9,999'
+    input = gets.chomp.upcase
+    quantity, product_code = input.scan(/\w+/)
+    until @valid_codes.include?(product_code) && quantity.match?(/\A\d+\z/)
+      puts 'Please enter a valid quantity and code'
+      input = gets.chomp.upcase
+      quantity, product_code = input.scan(/\w+/)
+    end
+    { code: product_code, quantity: quantity.to_i }
   end
 end
 
