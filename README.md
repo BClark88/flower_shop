@@ -18,6 +18,6 @@ If you use `Rbenv` to manage your ruby installations, you can change the version
 Running this task will check for rubocop linter errors, as well as run all tests
 
 ## Other deficiencies
-I ended up running out of time so I couldn't take the time to write a nice, clean CLI. \
-Arguably `app.rb` should have unit tests. I tried methods of testing within a loop, but none of them worked well. \
-Code that's hard to test is poorly written code, if I had more time I'd consider a more testable appraoch.
+`lib/application` uses a continuous loop to handle user input. Unfortunately it appears that these loops cannot \
+be reliably tested using Rspec, so this class remains untested. An alternative would be to force the user to load \
+a csv file instead of creating a CLI, but that would be a bad user experience.
